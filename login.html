@@ -7,15 +7,22 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1c/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg');
-      background-size: cover;
-      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+      background-color: #ffffff;
     }
+
+    @media (min-width: 768px) {
+      body {
+        background-image: url('https://raw.githubusercontent.com/kikiboy91/testpage/main/upscaled_background.png');
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
     .login-container {
       background-color: #fff;
       border-radius: 12px;
@@ -29,7 +36,7 @@
       margin-bottom: 20px;
     }
     .logo img {
-      height: 40px;
+      height: 50px;
     }
     .login-title {
       font-size: 18px;
